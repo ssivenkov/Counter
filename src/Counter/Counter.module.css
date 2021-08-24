@@ -1,0 +1,11 @@
+.counterBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 40vw;
+    height: 30vw;
+    border-radius: 2vw;
+    border: 3px solid #63DAFC;
+    box-shadow: 0 0 15px #2fcfff;
+}

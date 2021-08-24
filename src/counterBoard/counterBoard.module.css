@@ -1,0 +1,19 @@
+.counterBoard {
+    text-align: center;
+    width: 85%;
+    font-size: 8vw;
+    font-weight: normal;
+    border-radius: 2vw;
+    color: #2A2C35;
+    background-color: #63DAFC;
+}
+
+.counterBoardMax {
+    text-align: center;
+    width: 85%;
+    font-size: 8vw;
+    font-weight: bold;
+    border-radius: 2vw;
+    color: orangered;
+    background-color: #63DAFC;
+}
