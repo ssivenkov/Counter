@@ -1,0 +1,61 @@
+.counterButtonContainer {
+    margin-top: 3vw;
+    padding: 2vw;
+    width: 75%;
+    border-radius: 2vw;
+    border: 3px solid #63DAFC;
+}
+
+.ButtonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inc_btn {
+    color: #2A2C35;
+    margin-right: 2vw;
+    padding: 0 2vw;
+    font-size: 5vw;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 2vw;
+    background-color: #63DAFC;
+    box-shadow: 0 0 10px #2fcfff;
+}
+.inc_btn:hover {
+    background-color: #36c6ff;
+    box-shadow: 0 0 0.7vw #2fcfff;
+}
+
+.reset_btn {
+    color: #2A2C35;
+    padding: 0 2vw;
+    font-size: 5vw;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 2vw;
+    background-color: #63DAFC;
+    box-shadow: 0 0 16px #2fcfff;
+}
+.reset_btn:hover {
+    background-color: #36c6ff;
+    box-shadow: 0 0 16px #2fcfff;
+}
+
+.disable_btn {
+    cursor: not-allowed;
+    color: #14161F;
+    background-color: #2c6171;
+    box-shadow: 0 0 0 transparent;
+}
+.disable_btn:hover {
+    cursor: not-allowed;
+    color: #14161F;
+    background-color: #2c6171;
+    box-shadow: 0 0 0 transparent;
+}

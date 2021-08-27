@@ -1,11 +1,21 @@
+.counterContainer {
+    display: flex;
+    flex-direction: row;
+}
+
 .counterBody {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 40vw;
-    height: 30vw;
+    height: 33vw;
     border-radius: 2vw;
     border: 3px solid #63DAFC;
     box-shadow: 0 0 15px #2fcfff;
+    margin-right: 5vw;
+}
+
+.counterBody:last-child {
+    margin-right: 0;
 }

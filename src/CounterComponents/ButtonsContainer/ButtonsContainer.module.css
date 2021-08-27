@@ -1,0 +1,17 @@
+.ButtonsContainer {
+    margin-top: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 11vw;
+    width: 85%;
+    border-radius: 2vw;
+    border: 3px solid #63DAFC;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}

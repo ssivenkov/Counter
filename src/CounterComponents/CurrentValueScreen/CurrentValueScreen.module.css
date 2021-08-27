@@ -1,0 +1,77 @@
+.counterBoard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vw;
+    width: 85%;
+    font-size: 10vw;
+    font-weight: normal;
+    overflow: hidden;
+    border-radius: 2vw;
+    color: #2A2C35;
+    background-color: #63DAFC;
+    border: 3px solid #63DAFC;
+}
+
+.counterBoardMax {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vw;
+    width: 85%;
+    font-size: 10vw;
+    font-weight: bold;
+    overflow: hidden;
+    border-radius: 2vw;
+    color: orangered;
+    background-color: #63DAFC;
+    border: 3px solid #63DAFC;
+}
+
+.counterBoardText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vw;
+    width: 85%;
+    font-size: 3.9vw;
+    font-weight: normal;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 2vw;
+    color: #2A2C35;
+    background-color: #63DAFC;
+    border: 3px solid #63DAFC;
+}
+
+.counterBoardErrorText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vw;
+    width: 85%;
+    font-size: 3.9vw;
+    font-weight: bold;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 2vw;
+    color: red;
+    background-color: #fda6a6;
+    border: 3px solid transparent;
+}
+
+.counterBoardError {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 13vw;
+    width: 85%;
+    font-size: 3.9vw;
+    font-weight: bold;
+    overflow: hidden;
+    text-align: center;
+    border-radius: 2vw;
+    color: red;
+    background-color: #fda6a6;
+    border: 3px solid red;
+}

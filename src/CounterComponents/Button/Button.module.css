@@ -1,0 +1,36 @@
+.Button {
+    color: #2A2C35;
+    margin-right: 2vw;
+    padding: 0 2vw;
+    font-size: 5vw;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 2vw;
+    background-color: #63DAFC;
+    box-shadow: 0 0 10px #2fcfff;
+}
+
+.Button:last-child {
+    margin-right: 0;
+}
+
+.Button:hover {
+    background-color: #36c6ff;
+    box-shadow: 0 0 0.7vw #2fcfff;
+}
+
+.Button[disabled] {
+    cursor: not-allowed;
+    color: #14161F;
+    background-color: #2c6171;
+    box-shadow: 0 0 0 transparent;
+}
+
+.Button[disabled]:hover {
+    cursor: not-allowed;
+    color: #14161F;
+    background-color: #2c6171;
+    box-shadow: 0 0 0 transparent;
+}
