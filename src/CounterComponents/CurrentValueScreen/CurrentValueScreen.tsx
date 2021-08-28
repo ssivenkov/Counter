@@ -2,35 +2,45 @@ import React from 'react';
 import s from './CurrentValueScreen.module.css';
 
 type currentValueType = {
-    currentValue: number | string
+    currentValue: number | undefined
+    errorMessage: string
     maxValue: number
-    error: boolean
+    startValue: number
 }
 
-function CurrentValue(props:currentValueType) {
-    if (Number.isInteger(props.currentValue)) {
-        if (props.currentValue >= props.maxValue) {
-            return <span className={s.counterBoardMax}>
-                {props.currentValue}
+type currentValueScreenType = {
+    currentValue: number | undefined
+    maxValue: number
+    startValue: number
+}
+
+function CurrentValue(props: currentValueType) {
+    const currentValueCN = props.currentValue === props.maxValue ? s.counterBoardMax : '';
+
+    if (props.currentValue !== undefined)
+        return <span className={s.counterBoard}>
+                <span className={currentValueCN}>{props.currentValue}</span>
             </span>
-        } else {
-            return <span className={s.counterBoard}>
-                {props.currentValue}
-            </span>
-        }
-    } else {
-        return (
-            <span className={`${s.counterBoardText} ${props.error ? s.counterBoardErrorText : ''}`}>
-                {props.currentValue}
-            </span>
-        )
+    else if (props.errorMessage === '')
+        return <span className={s.counterBoardText}>Enter values and press 'set'</span>
+    else
+         return <span className={s.counterBoardErrorText}>{props.errorMessage}</span>
+}
+
+export function CurrentValueScreen(props: currentValueScreenType) {
+    let errorMessage = '';
+    if (props.startValue < 0) {
+        errorMessage = "Incorrect value!"
+    } else if (props.maxValue <= props.startValue) {
+        errorMessage = "Incorrect value!"
     }
-}
 
-export function CurrentValueScreen(props: currentValueType) {
     return (
-        <div className={props.error ? s.counterBoardError : s.counterBoard}>
-            <CurrentValue currentValue={props.currentValue} maxValue={props.maxValue} error={props.error}/>
+        <div className={errorMessage === '' ? s.counterBoard : s.counterBoardError}>
+            <CurrentValue currentValue={props.currentValue}
+                          maxValue={props.maxValue}
+                          startValue={props.startValue}
+                          errorMessage={errorMessage}/>
         </div>
     )
 }

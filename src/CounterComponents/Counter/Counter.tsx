@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './Counter.module.css';
 import {CurrentValueScreen} from '../CurrentValueScreen/CurrentValueScreen';
 import {SetValueButtons} from "../SetValueButtons/SetValueButtons";
@@ -18,74 +18,44 @@ function Counter() {
             return JSON.parse(valueAsString)
         } else return 0
     }
+    useEffect(() => {
+        setStartValue(startValueState())
+        setMaxValue(maxValueState())
+    }, [])
 
-    const [currentValue, setCurrentValue] = useState<number | string>(startValueState())
-    const [maxValue, setMaxValue] = useState<number>(maxValueState())
-    const [startValue, setStartValue] = useState<number>(startValueState())
+    const [currentValue, setCurrentValue] = useState<number | undefined>(undefined)
+    const [maxValue, setMaxValue] = useState<number>(5)
+    const [startValue, setStartValue] = useState<number>(0)
+
+    let error = false;
+    if (maxValue <= startValue || startValue < 0 || maxValue < 0) {
+        error = true
+    }
 
     const incFunc = function () {
-        if (Number.isInteger(currentValue)) {
-            setCurrentValue(+currentValue + 1)
-        } else {
-            setCurrentValue(startValue + 1)
+        if (currentValue !== undefined) {
+            const newValue = currentValue + 1;
+            setCurrentValue(newValue)
         }
     }
     const resetFunc = function () {
-        setCurrentValue(startValueState())
+        setCurrentValue(startValue)
     }
-
-    // useStates for button disabling condition
-    const [maxValueFromLocalStorage, setMaxValueFromLocalStorage] = useState<number>(maxValueState())
-    const [startValueFromLocalStorage, setStartValueFromLocalStorage] = useState<number>(startValueState())
 
     const setValuesLocalStorage = function () {
         localStorage.setItem("MaxValue", JSON.stringify(maxValue))
         localStorage.setItem("StartValue", JSON.stringify(startValue))
         setCurrentValue(startValue)
-
-        // for button disabling condition
-        const maxValueAsString = localStorage.getItem("MaxValue")
-        if (maxValueAsString) {
-            setMaxValueFromLocalStorage(JSON.parse(maxValueAsString))
-        }
-        const startValueAsString = localStorage.getItem("StartValue")
-        if (startValueAsString) {
-            setStartValueFromLocalStorage(JSON.parse(startValueAsString))
-        }
     }
 
-    const okText = "Enter values and press 'set'"
-    const errorText = "Incorrect value!"
     const checkMaxValue = function (value: number) {
-        if (value <= startValue || startValue < 0 || value <= 0) {
-            setCurrentValue(errorText)
-            setMaxValue(value)
-        } else {
-            if (maxValueFromLocalStorage === value &&
-                startValueFromLocalStorage === startValue) {
-                setMaxValue(value)
-                resetFunc()
-            } else {
-                setMaxValue(value)
-                setCurrentValue(okText)
-            }
-        }
+        setMaxValue(value)
+        setCurrentValue(undefined)
     }
 
     const checkStartValue = function (value: number) {
-        if (value >= maxValue || value < 0) {
-            setCurrentValue(errorText)
-            setStartValue(value)
-        } else {
-            if (maxValueFromLocalStorage === maxValue &&
-                startValueFromLocalStorage === value) {
-                setStartValue(value)
-                resetFunc()
-            } else {
-                setStartValue(value)
-                setCurrentValue(okText)
-            }
-        }
+        setStartValue(value)
+        setCurrentValue(undefined)
     }
 
     return (
@@ -104,43 +74,19 @@ function Counter() {
                                      }
                 />
                 <SetValuesRangeButton setValuesLocalStorage={setValuesLocalStorage}
-                                      setButtonDisable={
-                                          maxValueFromLocalStorage === maxValue &&
-                                          startValueFromLocalStorage === startValue ||
-                                          startValue < 0 ||
-                                          maxValue <= startValue
-                                      }
+                                      setButtonDisable={error}
                 />
             </div>
 
             <div className={s.counterBody}>
                 <CurrentValueScreen currentValue={currentValue}
                                     maxValue={maxValue}
-                                    error={
-                                        maxValue <= startValue ||
-                                        maxValue <= 0 ||
-                                        startValue < 0 ||
-                                        maxValue <= startValue
-                                    }
+                                    startValue={startValue}
                 />
                 <SetValueButtons inc={incFunc}
                                  reset={resetFunc}
-                                 incDisable={
-                                     currentValue < startValue ||
-                                     currentValue >= maxValue ||
-                                     startValue < 0 ||
-                                     maxValue <= startValue ||
-                                     maxValueFromLocalStorage !== maxValue ||
-                                     startValueFromLocalStorage !== startValue
-                                 }
-                                 resetDisable={
-                                     currentValue <= startValue ||
-                                     currentValue === 0 ||
-                                     startValue < 0 ||
-                                     maxValue <= startValue ||
-                                     maxValueFromLocalStorage !== maxValue ||
-                                     startValueFromLocalStorage !== startValue
-                                 }
+                                 incDisable={currentValue === maxValue || currentValue === undefined}
+                                 resetDisable={currentValue === startValue || currentValue === undefined}
                 />
             </div>
         </div>
