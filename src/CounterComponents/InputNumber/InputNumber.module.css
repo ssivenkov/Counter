@@ -3,9 +3,9 @@
     height: 3vw;
     color: #000;
     text-align: center;
-    font-size: 2.5vw;
+    font-size: 3.3vw;
     outline: none;
-    border: 3px solid #63DAFC;
+    border: .15vw solid #63DAFC;
     border-radius: 1vw;
 }
 
@@ -19,4 +19,5 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     border: .1vw solid transparent;
     cursor: pointer;
+    display: none;
 }

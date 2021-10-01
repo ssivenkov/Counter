@@ -4,7 +4,7 @@
     width: 75%;
     height: 11vw;
     border-radius: 2vw;
-    border: 3px solid #63DAFC;
+    border: .15vw solid #63DAFC;
 }
 
 .field {
@@ -14,7 +14,7 @@
 }
 
 .text {
-    margin-bottom: 0.5vw;
-    font-size: 3vw;
+    margin-bottom: .9vw;
+    font-size: 3.7vw;
     color: #63DAFC;
 }
