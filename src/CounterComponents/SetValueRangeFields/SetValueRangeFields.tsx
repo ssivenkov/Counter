@@ -14,6 +14,8 @@ type SetValueRangeFieldsType = {
 
 export function SetValueRangeFields(props: SetValueRangeFieldsType) {
     const checkMaxValue = (event: ChangeEvent<HTMLInputElement>) => {
+        console.log("1 - по onChange начала выполняться функция для инпута максимального значения, " +
+          "в неё передаём то что ввели");
         const eventNumber = Number(event.currentTarget.value)
         props.checkMaxValue(eventNumber)
     }

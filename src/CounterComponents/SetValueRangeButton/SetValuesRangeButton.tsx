@@ -1,5 +1,4 @@
 import React from 'react';
-import s from './SetValueRangeButton.module.css';
 import {Button} from "../Button/Button";
 import {ButtonsContainer} from "../ButtonsContainer/ButtonsContainer";
 
