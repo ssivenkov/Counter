@@ -1,10 +1,12 @@
 import { combineReducers, createStore, Store } from "redux";
-import { setMaxValueAC, GlobalReducer } from "./GlobalReducer";
+import { setMaxValueAC, GlobalReducer, setStartValueAC, setCurrentValueAC } from "./GlobalReducer";
 
 export type ActionValuesType = ReturnType<typeof setMaxValueAC>
+    | ReturnType<typeof setStartValueAC>
+    | ReturnType<typeof setCurrentValueAC>
 
 let RootReducer = combineReducers({
-  maxValue: GlobalReducer
+    globalReducer: GlobalReducer,
 })
 
 export type RootStateType = ReturnType<typeof RootReducer>

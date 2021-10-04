@@ -1,7 +1,7 @@
-import React, {ChangeEvent} from 'react';
-import s from './SetValueRangeFields.module.css';
-import fieldStyle from '../InputNumber/InputNumber.module.css'
-import {InputNumber} from "../InputNumber/InputNumber";
+import React, { ChangeEvent } from "react";
+import s from "./SetValueRangeFields.module.css";
+import fieldStyle from "../InputNumber/InputNumber.module.css"
+import { InputNumber } from "../InputNumber/InputNumber";
 
 type SetValueRangeFieldsType = {
     maxValue: number
@@ -14,8 +14,6 @@ type SetValueRangeFieldsType = {
 
 export function SetValueRangeFields(props: SetValueRangeFieldsType) {
     const checkMaxValue = (event: ChangeEvent<HTMLInputElement>) => {
-        console.log("1 - по onChange начала выполняться функция для инпута максимального значения, " +
-          "в неё передаём то что ввели");
         const eventNumber = Number(event.currentTarget.value)
         props.checkMaxValue(eventNumber)
     }
@@ -31,7 +29,7 @@ export function SetValueRangeFields(props: SetValueRangeFieldsType) {
                 <InputNumber type={"number"}
                              value={props.maxValue}
                              onChange={checkMaxValue}
-                             className={props.maxValueInputRed ? fieldStyle.inputRed : ''}
+                             className={props.maxValueInputRed ? fieldStyle.inputRed : ""}
                 />
             </div>
             <div className={s.field}>
@@ -39,7 +37,7 @@ export function SetValueRangeFields(props: SetValueRangeFieldsType) {
                 <InputNumber type={"number"}
                              value={props.startValue}
                              onChange={checkStartValue}
-                             className={props.startValueInputRed ? fieldStyle.inputRed : ''}
+                             className={props.startValueInputRed ? fieldStyle.inputRed : ""}
                 />
             </div>
         </div>

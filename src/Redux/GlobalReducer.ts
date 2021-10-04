@@ -1,29 +1,56 @@
-export type initialType = {
-  maxValue: number
-  minValue: number
+import { ActionValuesType } from "./ReduxStore";
+
+export type StateType = {
+    maxValue: number
+    startValue: number
+    currentValue: number | undefined
 }
 
-export type ActionValueType = ReturnType<typeof setMaxValueAC>
+const SET_MAX_VALUE_TYPE = "SET-MAX-VALUE-TYPE";
+const SET_START_VALUE_TYPE = "SET-START-VALUE-TYPE";
+const SET_CURRENT_VALUE_TYPE = "SET-CURRENT-VALUE-TYPE";
 
-let initialState: initialType = {
-  maxValue: 5,
-  minValue: 0,
+let initialState = {
+    maxValue: 5,
+    startValue: 0,
+    currentValue: undefined,
 }
 
-export const GlobalReducer = (state = initialState, action: ActionValueType) => {
-  switch (action.type) {
-    case "SET-MAX-VALUE-TYPE":
-      console.log("3 - редьюсер принимает экшен и возвращает новый стейт => выполняется перерисовка");
-      return {...state, maxValue: action.maxValue}
-    default:
-      return state;
-  }
+export const GlobalReducer = (state: StateType = initialState, action: ActionValuesType): StateType => {
+    switch (action.type) {
+        case SET_MAX_VALUE_TYPE:
+            return {...state, maxValue: action.maxValue};
+        case SET_START_VALUE_TYPE:
+            return {...state, startValue: action.startValue};
+        case SET_CURRENT_VALUE_TYPE:
+            return {...state, currentValue: action.currentValue};
+        default:
+            return state;
+    }
 }
 
-type setMaxValueAC = {
-  type: "SET-MAX-VALUE-TYPE",
-  maxValue: number,
+type SetMaxValueACType = {
+    type: typeof SET_MAX_VALUE_TYPE,
+    maxValue: number,
+}
+type SetStartValueACType = {
+    type: typeof SET_START_VALUE_TYPE,
+    startValue: number,
+}
+type SetCurrentValueACType = {
+    type: typeof SET_CURRENT_VALUE_TYPE,
+    currentValue: number | undefined,
 }
 
-export const setMaxValueAC = (maxValue: number): setMaxValueAC =>
-  ({type: "SET-MAX-VALUE-TYPE", maxValue})
+export const setMaxValueAC = (maxValue: number): SetMaxValueACType => ({
+    type: SET_MAX_VALUE_TYPE,
+    maxValue,
+});
+export const setStartValueAC = (startValue: number): SetStartValueACType => ({
+    type: SET_START_VALUE_TYPE,
+    startValue,
+});
+export const setCurrentValueAC = (currentValue: number | undefined): SetCurrentValueACType => ({
+    type: SET_CURRENT_VALUE_TYPE,
+    currentValue,
+});

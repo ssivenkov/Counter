@@ -1,6 +1,6 @@
-import React from 'react';
-import {Button} from "../Button/Button";
-import {ButtonsContainer} from "../ButtonsContainer/ButtonsContainer";
+import React from "react";
+import { Button } from "../Button/Button";
+import { ButtonsContainer } from "../ButtonsContainer/ButtonsContainer";
 
 type SetValuesRangeButtonPropsType = {
     setButtonDisable: boolean

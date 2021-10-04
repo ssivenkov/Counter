@@ -1,5 +1,5 @@
-import React, {ChangeEvent} from 'react';
-import s from './InputNumber.module.css'
+import React, { ChangeEvent } from "react";
+import s from "./InputNumber.module.css"
 
 type InputNumberType = {
     type: string
