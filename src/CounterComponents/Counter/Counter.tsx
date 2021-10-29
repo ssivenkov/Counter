@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import s from "./Counter.module.css";
+import s from "./Counter.module.scss";
 import { CurrentValueScreen } from "../CurrentValueScreen/CurrentValueScreen";
 import { SetValueButtons } from "../SetValueButtons/SetValueButtons";
 import { SetValueRangeFields } from "../SetValueRangeFields/SetValueRangeFields";

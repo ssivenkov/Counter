@@ -1,6 +1,6 @@
 import React, { ChangeEvent } from "react";
-import s from "./SetValueRangeFields.module.css";
-import fieldStyle from "../InputNumber/InputNumber.module.css"
+import s from "./SetValueRangeFields.module.scss";
+import fieldStyle from "../InputNumber/InputNumber.module.scss"
 import { InputNumber } from "../InputNumber/InputNumber";
 
 type SetValueRangeFieldsType = {

@@ -1,8 +1,8 @@
 import React from 'react';
-import s from './App.module.css';
+import s from './App.module.scss';
 import Counter from './CounterComponents/Counter/Counter';
 
-function App(props: any) {
+function App() {
     return (
         <div className={s.background}>
             <Counter/>

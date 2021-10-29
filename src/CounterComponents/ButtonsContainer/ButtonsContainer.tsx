@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./ButtonsContainer.module.css";
+import s from "./ButtonsContainer.module.scss";
 
 export const ButtonsContainer: React.FC = ({children}) => {
     return (

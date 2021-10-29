@@ -1,5 +1,5 @@
 import React from "react";
-import s from "./CurrentValueScreen.module.css";
+import s from "./CurrentValueScreen.module.scss";
 
 type currentValueType = {
     currentValue: number | undefined
